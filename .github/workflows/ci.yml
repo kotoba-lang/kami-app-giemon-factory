@@ -6,15 +6,32 @@ on:
 
 jobs:
   test:
+    name: test and Kotoba conformance (JDK ${{ matrix.java }})
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        java: ['17', '21']
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: '21'
+          java-version: ${{ matrix.java }}
       - uses: DeLaGuardo/setup-clojure@13.4
         with:
           cli: latest
       - run: clojure -M:test
       - run: clojure -M:lint
+      - name: Compile Kotoba construction safety
+        run: |
+          mkdir -p target/kotoba
+          clojure -M:kotoba compile test/kami_app_giemon_factory/construction_safety_conformance.kotoba \
+            --source-path src --target js-browser --output target/kotoba/construction.mjs
+          clojure -M:kotoba compile test/kami_app_giemon_factory/construction_safety_conformance.kotoba \
+            --source-path src --target wasm32-browser --output target/kotoba/construction.wasm
+      - name: Execute construction safety Web and Wasm cases
+        run: |
+          compiler_src="$(clojure -Spath -M:kotoba | tr ':' '\n' | grep '/compiler/' | head -1)"
+          node scripts/verify-kotoba-construction-safety.mjs target/kotoba/construction.mjs \
+            target/kotoba/construction.wasm "$(dirname "$compiler_src")/runtime/browser-host.mjs"
