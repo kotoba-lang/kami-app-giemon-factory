@@ -1,5 +1,10 @@
 # kotoba-lang/kami-app-giemon-factory
 
+The bounded construction-order safety decision also has a native,
+capability-free `.kotoba` kernel. Factory/clash geometry, physical robots,
+rendering, source loading, and open string metadata remain Kami engine/CLJC
+responsibilities.
+
 Zero-dep portable `.cljc` — restored from the legacy `kami-engine/kami-app-giemon-factory`
 Rust crate (`src/lib.rs` + `src/scene.rs`, deleted in kotoba-lang/kami-engine PR #82
 "Remove Rust workspace from kami-engine") as part of the **clj-wgsl migration**

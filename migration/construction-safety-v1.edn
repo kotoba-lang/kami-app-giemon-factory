@@ -1,0 +1,13 @@
+{:migration/id :giemon-factory/construction-safety-v1
+ :status :candidate
+ :source-of-truth {:legacy "src/kami_app_giemon_factory/construction_order.cljc"
+                   :kernel "src/kami_app_giemon_factory/construction_safety.kotoba"}
+ :domain {:maximum-steps 4 :maximum-known-elements 8 :maximum-known-robots 4
+          :maximum-reveals-per-step 2 :ids :positive-i64
+          :sequence :contiguous-from-one :invalid-encoding-policy :fail-closed}
+ :excluded [:string-ids :names :trades :zones :durations :factory-geometry
+            :clash-coordinates :robot-physics :rendering :source-json-loading]
+ :evidence {:cljc-oracle "test/kami_app_giemon_factory/construction_safety_matrix_test.clj"
+            :kotoba-conformance "test/kami_app_giemon_factory/construction_safety_conformance.kotoba"
+            :web-wasm-verifier "scripts/verify-kotoba-construction-safety.mjs"
+            :cases-per-target 16}}
