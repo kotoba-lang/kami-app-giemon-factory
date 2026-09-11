@@ -64,7 +64,7 @@ robots}.json`. That dataset is not present anywhere in this monorepo checkout â€
 confirmed absent by a tree search of the source commit
 (`a8368f9c0d784dbc9d11e8fa8f407aa95c7ce4fa`) before this port began. Fabricating a
 plausible-looking "real" dataset would misrepresent the actual giemon factory plant, so
-`test/kami_app_giemon_factory/fixtures.cljc` instead ships a small hand-authored
+`test/kami_app_giemon_factory/fixtures.cljk` instead ships a small hand-authored
 synthetic factory (four-wall/four-column building shell, one machine, one conveyor,
 one arm6 cell, one AGV), a 3-step construction order, a 3-robot roster, and 2
 engineering clashes â€” and tests the same *kinds* of properties the original Rust test
