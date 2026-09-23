@@ -1,6 +1,6 @@
 (ns kami-app-giemon-factory.clashes-test
   "Ported from `scene.rs`'s `#[cfg(test)]` `clashes_load`."
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [kami-app-giemon-factory.clashes :as clashes]
             [kami-app-giemon-factory.fixtures :as fixtures]))
 
