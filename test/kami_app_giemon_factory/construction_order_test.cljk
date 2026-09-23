@@ -1,7 +1,7 @@
 (ns kami-app-giemon-factory.construction-order-test
   "Ported from `scene.rs`'s `#[cfg(test)]` `order_is_contiguous_and_reveals_resolve`
   and the order-assignment portion of `robots_load_and_steps_assigned`."
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [kami-app-giemon-factory.construction-order :as co]
             [kami-app-giemon-factory.factory :as factory]
             [kami-app-giemon-factory.robots :as robots]

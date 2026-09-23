@@ -3,7 +3,7 @@
   `mep_and_site_present`, and `obstacle_counts` (the parts of those tests
   that exercise ported functions — the original also asserted on
   `Factory::load`'s I/O, which isn't ported here)."
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [kami-app-giemon-factory.factory :as factory]
             [kami-app-giemon-factory.fixtures :as fixtures]))
 
